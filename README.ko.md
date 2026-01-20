@@ -15,12 +15,32 @@ Discord를 통한 원격 Claude Code 실행 - [cc-telegram](https://github.com/h
 
 ## 설치
 
-```bash
-# 전역 설치
-npm install -g cc-discord
+### npx 사용 (권장)
 
-# 또는 npx 사용
+프로젝트별로 독립적인 설정을 가지고 실행할 수 있습니다.
+
+```bash
+# 프로젝트 폴더에서 실행
+cd your-project
 npx cc-discord
+```
+
+각 프로젝트 폴더에 `.cc-discord/` 폴더가 생성되어 독립적인 설정과 작업을 관리합니다.
+
+### 전역 설치
+
+```bash
+npm install -g cc-discord
+cc-discord
+```
+
+### 소스에서 설치 (개발용)
+
+```bash
+git clone https://github.com/shjang4339/cc-discord.git
+cd cc-discord
+npm install
+npm start
 ```
 
 ## 빠른 시작
@@ -117,11 +137,38 @@ Discord DM으로 봇에게 `/start`를 보내 사용자 ID를 등록하세요.
 ## CLI 옵션
 
 ```bash
-cc-discord              # 봇 시작
-cc-discord --setup      # 설정 마법사 실행
-cc-discord --deploy     # 슬래시 명령어 배포
-cc-discord --version    # 버전 표시
-cc-discord --help       # 도움말 표시
+npx cc-discord              # 봇 시작 (프로젝트 폴더에서)
+npx cc-discord --setup      # 설정 마법사 실행
+npx cc-discord --deploy     # 슬래시 명령어 배포
+npx cc-discord --version    # 버전 표시
+npx cc-discord --help       # 도움말 표시
+```
+
+## 프로젝트별 사용
+
+cc-discord는 **프로젝트별로 독립적인 설정**을 지원합니다:
+
+```bash
+# 프로젝트 A에서
+cd /path/to/project-a
+npx cc-discord          # project-a/.cc-discord/ 에 설정 저장
+
+# 프로젝트 B에서
+cd /path/to/project-b
+npx cc-discord          # project-b/.cc-discord/ 에 설정 저장
+```
+
+각 프로젝트마다:
+- 다른 Discord 봇 사용 가능
+- 독립적인 작업 큐 관리
+- 별도의 설정 (재시도 횟수, 병렬 실행 등)
+
+### .gitignore 추가
+
+프로젝트에 `.cc-discord/` 폴더를 git에서 제외하세요:
+
+```bash
+echo ".cc-discord/" >> .gitignore
 ```
 
 ## 요구 사항

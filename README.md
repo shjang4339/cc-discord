@@ -15,12 +15,32 @@ Control Claude Code tasks from your phone or any device with Discord!
 
 ## Installation
 
-```bash
-# Global install
-npm install -g cc-discord
+### Using npx (Recommended)
 
-# Or use npx
+프로젝트별로 독립적인 설정을 가지고 실행할 수 있어요.
+
+```bash
+# 프로젝트 폴더에서 실행
+cd your-project
 npx cc-discord
+```
+
+각 프로젝트 폴더에 `.cc-discord/` 폴더가 생성되어 독립적인 설정과 작업을 관리합니다.
+
+### Global Install
+
+```bash
+npm install -g cc-discord
+cc-discord
+```
+
+### From Source (Development)
+
+```bash
+git clone https://github.com/shjang4339/cc-discord.git
+cd cc-discord
+npm install
+npm start
 ```
 
 ## Quick Start
@@ -117,11 +137,38 @@ Configuration is stored in `.cc-discord/config.json` (encrypted).
 ## CLI Options
 
 ```bash
-cc-discord              # Start the bot
-cc-discord --setup      # Run setup wizard
-cc-discord --deploy     # Deploy slash commands
-cc-discord --version    # Show version
-cc-discord --help       # Show help
+npx cc-discord              # Start the bot (in project folder)
+npx cc-discord --setup      # Run setup wizard
+npx cc-discord --deploy     # Deploy slash commands
+npx cc-discord --version    # Show version
+npx cc-discord --help       # Show help
+```
+
+## Per-Project Usage
+
+cc-discord는 **프로젝트별로 독립적인 설정**을 지원합니다:
+
+```bash
+# 프로젝트 A에서
+cd /path/to/project-a
+npx cc-discord          # project-a/.cc-discord/ 에 설정 저장
+
+# 프로젝트 B에서
+cd /path/to/project-b
+npx cc-discord          # project-b/.cc-discord/ 에 설정 저장
+```
+
+각 프로젝트마다:
+- 다른 Discord 봇 사용 가능
+- 독립적인 작업 큐 관리
+- 별도의 설정 (재시도 횟수, 병렬 실행 등)
+
+### .gitignore 추가
+
+프로젝트에 `.cc-discord/` 폴더를 git에서 제외하세요:
+
+```bash
+echo ".cc-discord/" >> .gitignore
 ```
 
 ## Requirements
