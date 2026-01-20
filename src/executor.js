@@ -61,11 +61,11 @@ function detectClaudeCommand() {
  * Build the Claude command arguments
  */
 function buildClaudeArgs(task) {
-  const args = ['--yes', '--dangerously-skip-permissions'];
+  const args = ['--dangerously-skip-permissions'];
 
   // Use plan mode for complex tasks
   if (task.complexity === 'complex' && task.completionCriteria) {
-    args.push('--plan');
+    args.push('--permission-mode', 'plan');
   }
 
   // Add the prompt
