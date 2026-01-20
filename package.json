@@ -1,0 +1,39 @@
+{
+  "name": "cc-discord",
+  "version": "1.0.0",
+  "description": "Discord bot for remote Claude Code execution - Discord version of cc-telegram",
+  "main": "src/cli.js",
+  "bin": {
+    "cc-discord": "src/cli.js"
+  },
+  "scripts": {
+    "start": "node src/cli.js",
+    "deploy": "node src/discord/deploy-commands.js",
+    "test": "jest --testTimeout=10000"
+  },
+  "keywords": [
+    "discord",
+    "claude",
+    "claude-code",
+    "remote",
+    "bot",
+    "automation"
+  ],
+  "author": "shjang4339",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "discord.js": "^14.18.0"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  },
+  "files": [
+    "src",
+    "README.md",
+    "README.ko.md",
+    "LICENSE"
+  ]
+}

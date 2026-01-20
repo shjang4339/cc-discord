@@ -1,0 +1,107 @@
+{
+  "app": {
+    "name": "cc-discord",
+    "description": "Discord를 통한 원격 Claude Code 실행"
+  },
+  "init": {
+    "welcome": "cc-discord 설정을 시작합니다!",
+    "tokenPrompt": "Discord 봇 토큰을 입력해주세요:",
+    "tokenInvalid": "유효하지 않은 토큰입니다. 다시 확인해주세요.",
+    "clientIdPrompt": "애플리케이션 (Client) ID를 입력해주세요:",
+    "userIdPrompt": "봇에게 DM으로 /start를 보내 사용자 ID를 등록해주세요.",
+    "userIdReceived": "사용자 ID 등록 완료: {userId}",
+    "setupComplete": "설정 완료! 이제 cc-discord를 사용할 수 있습니다.",
+    "retriesPrompt": "기본 최대 재시도 횟수를 입력하세요 (기본값: 15):",
+    "parallelPrompt": "병렬 실행을 활성화할까요? (y/n):",
+    "maxParallelPrompt": "최대 병렬 작업 수를 입력하세요 (기본값: 1):"
+  },
+  "commands": {
+    "new": {
+      "name": "new",
+      "description": "새 작업 생성",
+      "requirementLabel": "요구사항",
+      "requirementPlaceholder": "작업 요구사항을 입력하세요...",
+      "criteriaLabel": "완료 기준 (선택)",
+      "criteriaPlaceholder": "완료 기준을 입력하세요...",
+      "created": "✅ 작업 생성됨: {taskId}",
+      "selectComplexity": "작업 유형을 선택하세요:",
+      "simple": "단순 실행 (1회)",
+      "complex": "복잡 작업 (재시도 포함)",
+      "selectPriority": "우선순위를 선택하세요:",
+      "priorityUrgent": "🔴 긴급",
+      "priorityHigh": "🟠 높음",
+      "priorityNormal": "🟢 보통",
+      "priorityLow": "🔵 낮음"
+    },
+    "list": {
+      "name": "list",
+      "description": "대기 중인 작업 목록",
+      "title": "📋 대기 중인 작업",
+      "empty": "대기 중인 작업이 없습니다.",
+      "taskFormat": "**{id}** ({priority})\n{requirement}"
+    },
+    "status": {
+      "name": "status",
+      "description": "실행 중인 작업 상태",
+      "title": "🔄 실행 중인 작업",
+      "empty": "실행 중인 작업이 없습니다.",
+      "taskFormat": "**{id}** - 시작: {startedAt}\n{requirement}",
+      "recentOutput": "최근 출력:",
+      "cancel": "취소"
+    },
+    "completed": {
+      "name": "completed",
+      "description": "완료된 작업 목록",
+      "title": "✅ 완료된 작업",
+      "empty": "완료된 작업이 없습니다.",
+      "taskFormat": "**{id}** - 완료: {completedAt}\n{requirement}"
+    },
+    "failed": {
+      "name": "failed",
+      "description": "실패한 작업 목록",
+      "title": "❌ 실패한 작업",
+      "empty": "실패한 작업이 없습니다.",
+      "taskFormat": "**{id}** - 실패: {failedAt}\n{requirement}",
+      "retry": "재시도"
+    },
+    "debug": {
+      "name": "debug",
+      "description": "시스템 정보 표시",
+      "title": "🔧 디버그 정보",
+      "memory": "메모리 사용량",
+      "uptime": "가동 시간",
+      "platform": "플랫폼",
+      "nodeVersion": "Node.js 버전"
+    },
+    "reset": {
+      "name": "reset",
+      "description": "모든 데이터 초기화",
+      "confirm": "⚠️ 정말로 모든 데이터를 초기화하시겠습니까? 이 작업은 되돌릴 수 없습니다.",
+      "confirmButton": "예, 초기화",
+      "cancelButton": "취소",
+      "success": "✅ 모든 데이터가 초기화되었습니다.",
+      "cancelled": "초기화가 취소되었습니다."
+    },
+    "cancel": {
+      "name": "cancel",
+      "description": "작업 취소",
+      "selectTask": "취소할 작업을 선택하세요:",
+      "success": "✅ 작업 {taskId} 취소됨.",
+      "notFound": "작업을 찾을 수 없습니다.",
+      "noTasks": "취소할 작업이 없습니다."
+    }
+  },
+  "executor": {
+    "starting": "🚀 작업 시작: {taskId}",
+    "completed": "✅ 작업 완료: {taskId}",
+    "failed": "❌ 작업 실패: {taskId}",
+    "retrying": "🔄 작업 재시도: {taskId} (시도 {current}/{max})",
+    "timeout": "⏱️ 작업 시간 초과: {taskId}",
+    "output": "📝 {taskId} 출력:"
+  },
+  "errors": {
+    "notAuthorized": "⛔ 이 봇을 사용할 권한이 없습니다.",
+    "notInDM": "이 명령은 DM에서만 사용할 수 있습니다.",
+    "unknownError": "알 수 없는 오류가 발생했습니다."
+  }
+}
